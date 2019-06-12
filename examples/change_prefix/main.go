@@ -26,20 +26,16 @@ type configTest struct {
 
 func main() {
 
-	// Instance config struct
 	config := configTest{}
 
-	// Adds a prefix to the environment variables.
 	goconfig.PrefixEnv = "EXAMPLE"
 
-	// Pass the struct instance pointer to the parser
 	err := goconfig.Parse(&config)
 	if err != nil {
 		println(err)
 		return
 	}
 
-	// it just print the config struct on the screen
 	j, err := json.MarshalIndent(config, "", "\t")
 	if err != nil {
 		println(err)
